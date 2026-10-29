@@ -28,6 +28,28 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+    
+        <!-- UnifiedPush Receiver for background notifications -->
+        <receiver
+            android:name="org.unifiedpush.flutter.connector.PluginReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="org.unifiedpush.android.connector.MESSAGE"/>
+                <action android:name="org.unifiedpush.android.connector.UNREGISTERED"/>
+                <action android:name="org.unifiedpush.android.connector.NEW_ENDPOINT"/>
+                <action android:name="org.unifiedpush.android.connector.REGISTRATION_FAILED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Notification Boot Receiver -->
+        <receiver
+            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>

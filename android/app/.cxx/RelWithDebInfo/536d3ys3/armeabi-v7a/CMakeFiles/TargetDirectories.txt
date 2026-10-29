@@ -1,2 +1,0 @@
-/home/wdreyer/Downloads/lunasea/android/app/.cxx/RelWithDebInfo/536d3ys3/armeabi-v7a/CMakeFiles/edit_cache.dir
-/home/wdreyer/Downloads/lunasea/android/app/.cxx/RelWithDebInfo/536d3ys3/armeabi-v7a/CMakeFiles/rebuild_cache.dir

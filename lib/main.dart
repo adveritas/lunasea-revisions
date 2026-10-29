@@ -1,3 +1,4 @@
+import 'package:lunasea/core/services/unifiedpush_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -15,14 +16,17 @@ import 'package:lunasea/system/platform.dart';
 /// LunaSea Entry Point: Bootstrap & Run Application
 ///
 /// Runs app in guarded zone to attempt to capture fatal (crashing) errors
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   runZonedGuarded(
     () async {
       WidgetsFlutterBinding.ensureInitialized();
 
       try {
         await bootstrap();
-        runApp(const LunaBIOS());
+        await UnifiedPushService().initialize();
+        if (!args.contains("--unifiedpush-bg")) {
+          runApp(const LunaBIOS());
+        }
       } catch (error) {
         runApp(const LunaRecoveryMode());
       }

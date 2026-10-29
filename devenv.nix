@@ -20,8 +20,8 @@
       package = pkgs.flutter329;
     };
 
-    platforms.version = [ "31" "34" "35" ];
-    buildTools.version = [ "33.0.1" ];
+    platforms.version = [ "31" "34" "35" "36" ];
+    buildTools.version = [ "33.0.1" "34.0.0" ];
 
     cmdLineTools.version = "11.0";
 
@@ -73,7 +73,6 @@ EOF
 
   scripts.apk.exec = ''
     flutter pub get
-    dart run build_runner build --delete-conflicting-outputs
     flutter build apk --debug --target-platform android-arm64
   '';
 

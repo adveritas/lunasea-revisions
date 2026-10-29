@@ -1,3 +1,4 @@
+import 'package:lunasea/modules/settings/routes/notifications/unifiedpush_settings.dart';
 import 'package:flutter/material.dart';
 
 import 'package:lunasea/core.dart';
@@ -39,6 +40,16 @@ class _State extends State<SettingsRoute> with LunaScrollControllerMixin {
     return LunaListView(
       controller: scrollController,
       children: [
+        LunaBlock(
+          title: 'UnifiedPush Notifications',
+          body: [TextSpan(text: 'Serverless push alerts from Radarr, Sonarr & SABnzbd')],
+          trailing: const LunaIconButton(icon: Icons.notifications_active_rounded),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const UnifiedPushSettingsRoute()),
+          ),
+        ),
+
         LunaBlock(
           title: 'settings.Configuration'.tr(),
           body: [TextSpan(text: 'settings.ConfigurationDescription'.tr())],
